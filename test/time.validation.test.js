@@ -83,9 +83,35 @@ describe('time validation', () => {
             expect(closestDate(inputTime)).toBe(expectedOutput);
             done();
         });
-        // YOUR CODE HERE
+        // input is November 13, 2013 at 11:55 am in the Asia/Taipei region
+        test('it returns the previous day when given a previous year in a different time zone before noon', (done) => {
+            const inputTime = '2013-11-18T11:55:00+08:00'
+            const expectedOutput = '2013-11-17';
+            expect(closestDate(inputTime)).toBe(expectedOutput);
+            done();
+        });
+        // input is June, 10 2030 at 2:00 pm in the America/Toronto region
+        test('it returns the timestamp given a future year in a different time zone after noon', (done) => {
+                const inputTime = '2030-06-10T14:00:00-04:00'
+                const expectedOutput = '2030-06-10';
+                expect(closestDate(inputTime)).toBe(expectedOutput);
+            done();
+        });
+        // input is July, 07 2020 at 11:59:59 am in the central region
+        test('it returns the previous day when given a time right before noon', (done) => {
+                const inputTime = '2020-07-07T11:59:59-05:00'
+                const expectedOutput = '2020-07-06';
+                expect(closestDate(inputTime)).toBe(expectedOutput);
+            done();
+        });
+        // input is July, 07 2020 at 12:00:00 pm in the central region
+        test('it returns the timestamp when given exactly noon as a time', (done) => {
+                const inputTime = '2020-07-07T12:00:00-05:00'
+                const expectedOutput = '2020-07-07';
+                expect(closestDate(inputTime)).toBe(expectedOutput);
+            done();
+        });
     }); // end closest date test cases
-
 
     describe('format timestamp', () => {
         test('it returns a formatted timestamp', (done) => {

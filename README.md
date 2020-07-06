@@ -23,5 +23,5 @@ npm run test
 ## Questions
 
 - Did you make any changes to the functions after thinking through test cases?
-    - The test cases made me think more about edge cases than normal. In closeToNow I had to decide if the timestamp was exactly 30 seconds from the current time the return should be true or false.
+    - The test cases made me think more about edge cases than normal. In closeToNow I had to decide if the timestamp was exactly 30 seconds from the current time the return should be true or false or if given noon as the time in closestDate should be the current date or the previous.
 - Describe the experience of writing tests. Is this your first time writing unit tests?
