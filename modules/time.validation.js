@@ -42,7 +42,21 @@ function closeToNow(timestamp) {
  * @returns {String} calulated date in the format 'YYYY-MM-DD'
  */
 function closestDate(timestamp) {
-    // YOUR CODE HERE
+    // convert timestamp to central time
+    const date = moment(timestamp);
+    const centralTimestamp = date.tz('America/Chicago').format();
+    // extract the hour out of 24 from converted timestamp
+    const hour = moment( centralTimestamp ).format( 'HH' );
+
+    // check to see if the extract hour is less than 12 (am)
+    // if yes, return previous date formatted as specificed
+    // else return timestamped date formatted as specified
+    if( hour < 12 ) {
+        return `${moment(centralTimestamp).subtract( 1, 'day' ).format('YYYY-MM-DD')}`
+    }
+    else {
+        return `${moment(centralTimestamp).format('YYYY-MM-DD')}`
+    }
 }
 
 /**

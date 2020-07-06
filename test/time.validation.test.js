@@ -73,7 +73,7 @@ describe('time validation', () => {
             expect(closeToNow(timestamp)).toBe(false);
             done();
         })
-    }); //end closeToNow test cases
+    }); // end closeToNow test cases
 
 
     describe('closest date', () => {
@@ -84,7 +84,9 @@ describe('time validation', () => {
             done();
         });
         // YOUR CODE HERE
-    });
+    }); // end closest date test cases
+
+
     describe('format timestamp', () => {
         test('it returns a formatted timestamp', (done) => {
             const inputTime = '2020-07-01T16:03:18.021Z'

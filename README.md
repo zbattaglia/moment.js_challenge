@@ -13,9 +13,9 @@ npm run test
 
 ## Objectives
 
-- [ ] Complete `closeToNow` function in `modules/time.validation.js`
-- [ ] Write tests in `test/time.validation.tests.js` to validate the `closeToNow` function
-- [ ] Complete the `closestDate` function in `modules/time.validation.js`
+- [x] Complete `closeToNow` function in `modules/time.validation.js`
+- [x] Write tests in `test/time.validation.tests.js` to validate the `closeToNow` function
+- [x] Complete the `closestDate` function in `modules/time.validation.js`
 - [ ] Write tests in `test/time.validation.tests.js` to validate the `closestDate` function
 - [ ] Complete the `formatTimestamp` function in `modules/time.validation.js`
 - [ ] Write tests in `test/time.validation.tests.js` to validate the `formatTimestamp` function
@@ -23,4 +23,5 @@ npm run test
 ## Questions
 
 - Did you make any changes to the functions after thinking through test cases?
+    - The test cases made me think more about edge cases than normal. In closeToNow I had to decide if the timestamp was exactly 30 seconds from the current time the return should be true or false.
 - Describe the experience of writing tests. Is this your first time writing unit tests?
