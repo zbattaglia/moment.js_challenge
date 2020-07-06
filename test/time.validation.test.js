@@ -120,6 +120,29 @@ describe('time validation', () => {
             expect(formatTimestamp(inputTime, 'US/Central')).toBe(expectedOutput);
             done();
         });
-        // YOUR CODE HERE
+        test('it returns a formatted timestamp using the same time as above, but with a different time zone', (done) => {
+            const inputTime = '2020-07-01T16:03:18.021Z'
+            const expectedOutput = 'July 1st, 2020 at 9:03 am';
+            expect(formatTimestamp(inputTime, 'America/Los_Angeles')).toBe(expectedOutput);
+            done();
+        });
+        test('it returns a formatted timestamp using the same time zone as first case, but with a different time', (done) => {
+            const inputTime = '2020-07-01T02:04:55.021Z'
+            const expectedOutput = 'June 30th, 2020 at 9:04 pm';
+            expect(formatTimestamp(inputTime, 'US/Central')).toBe(expectedOutput);
+            done();
+        });
+        test('it returns a formatted timestamp using a past time', (done) => {
+            const inputTime = '1900-07-01T18:25:20.021Z'
+            const expectedOutput = 'July 2nd, 1900 at 3:25 am';
+            expect(formatTimestamp(inputTime, 'Asia/Tokyo')).toBe(expectedOutput);
+            done();
+        });
+        test('it returns a formatted timestamp using a time far in the future', (done) => {
+            const inputTime = '3250-11-20T12:20:00.021Z'
+            const expectedOutput = 'November 20th, 3250 at 9:20 pm';
+            expect(formatTimestamp(inputTime, 'Asia/Tokyo')).toBe(expectedOutput);
+            done();
+        });
     });
 });

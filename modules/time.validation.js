@@ -69,7 +69,10 @@ function closestDate(timestamp) {
  * @returns {String} calulated date in the format 'MMMM Do, YYYY [at] h:mm a'
  */
 function formatTimestamp(timestamp, timezone) {
-    // YOUR CODE HERE
+    // get the timestamp to display in the correct timezone
+    const decodedTime = moment(timestamp).tz(timezone);
+    // return decodedTime in correct format
+    return moment(decodedTime).format( 'MMMM Do, YYYY [at] h:mm a' );
 }
 
 module.exports = {
