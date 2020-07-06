@@ -10,8 +10,25 @@ const moment = require('moment-timezone');
  * @returns {Boolean} whether the timestamp is within 30 seconds of now
  */
 function closeToNow(timestamp) {
-    // YOUR CODE HERE
-}
+    // format timeStamp using moment
+    const stamp = moment(timestamp);
+    // get the current date to check against timeStamp
+    const currentTime = moment();
+    // get the difference between stamp and currentTime
+    const difference = moment.duration( currentTime.diff(stamp) );
+    // convert difference to seconds
+    const seconds = difference.asSeconds();
+
+    // check if the difference in seconds is =/- 30,
+    // if yes return true, else return false
+    if( seconds < 30 && seconds > -30 ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+
+}; // end closeToNow()
 
 /**
  * Returns the previous days date if before 12pm CST or the
